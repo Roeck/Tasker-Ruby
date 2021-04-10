@@ -14,11 +14,28 @@
     font-family: Sans-Serif;
   }
 
+/* HEADERS */
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+   font-weight: bold;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+     from {
+      color: white;
+    text-shadow: 0 0 5px #a989f3, 0 0 10px #a989f3, 0 0 15px #a989f3, 0 0 20px #a989f3, 0 0 25px #a989f3, 0 0 40px #a989f3;
+  }
+}
+
 /* BOX CONTAINER */  
 
 .box {
   padding: 4rem;
-  padding-bottom: 7rem;
   max-width: 400px;
   margin: 50px auto;
   background: #00000080;
