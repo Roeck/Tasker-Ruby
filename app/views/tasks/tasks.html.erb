@@ -1,6 +1,19 @@
-<div class=box>
-    <h1>Tasks</h1>
-    <div id="task-btns">
-        <a class="btn" href="/signout">Sign Out</a>
-    </div>
+<div class="box">
+    <h1>Tasker</h1>
+    <br /><br /><br />
+     <% if signed_in? %>
+
+    <!-- Welcome current user -->
+   <h3>Welcome, <%= current_user.name %>!</h3>
+    <br /><br />
+
+    <!-- Show current user's tasks -->
+    <h3>Your Tasks:</h3>
+    <br /><br />
+    <br /><br />
+
+        <div id="task-btns">
+            <a class="btn" href="/signout">Sign Out</a>
+        </div>
+    <% end %>
 </div>
