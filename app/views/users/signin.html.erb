@@ -14,6 +14,10 @@
         <label for="password">Password</label>
       </div>
       <br />
+      <% if flash[:message1] %>
+          <h3 id="alert"><%= flash[:message1] %></h3>
+        <% end %>
+      <br />
       <div id="signin_btns">
         <button class="btn" href="/tasks" type="submit">
           SUBMIT

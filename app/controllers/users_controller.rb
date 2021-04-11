@@ -41,6 +41,22 @@ class UsersController < ApplicationController
     erb :"/users/signin.html"
   end
 
+  # Find authenticated user and redirect it to tasks view:
+
+  post "/signin" do
+    @user = User.find_by(:name => params[:name])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect "/tasks"
+
+  # Else, if the user is not authenticated, alert error message:
+  
+    else
+      flash[:message1] = "This user does not exist!"
+      redirect "/signin"
+    end
+  end
+
 end
 
 
