@@ -77,6 +77,10 @@ h1 {
     padding-top: 4rem;
 }
 
+#signin_btns {
+    padding-left: 6.5rem;
+}
+
 /* SIGN BOXES */
 
 .sign-box {
