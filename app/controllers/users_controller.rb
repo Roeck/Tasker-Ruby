@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
-  # Signup routing:
+  # -------------- SIGN UP -------------- #
+
+  # Routing:
 
   get "/signup" do
     erb :"/users/signup.html"
@@ -29,6 +31,14 @@ class UsersController < ApplicationController
   get "/tasks" do
     @users = User.all
     erb :'/tasks/tasks.html'
+  end
+
+  # -------------- SIGN IN -------------- #
+
+  # Routing:
+
+  get "/signin" do   
+    erb :"/users/signin.html"
   end
 
 end
