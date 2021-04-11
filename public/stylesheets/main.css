@@ -81,6 +81,16 @@ h1 {
     padding-left: 6.5rem;
 }
 
+#task-btns {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%);
+  display: inline-block;
+}
+
 /* SIGN BOXES */
 
 .sign-box {

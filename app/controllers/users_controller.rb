@@ -50,9 +50,23 @@ class UsersController < ApplicationController
       redirect "/tasks"
 
   # Else, if the user is not authenticated, alert error message:
-  
+
     else
       flash[:message1] = "This user does not exist!"
+      redirect "/signin"
+    end
+  end
+
+  # -------------- SIGN OUT -------------- #
+
+  # If user signs out, destroy current session:
+
+  get "/signout" do
+    if signed_in?
+      session.destroy
+
+  # Then, redirect it to sign in form:
+
       redirect "/signin"
     end
   end
