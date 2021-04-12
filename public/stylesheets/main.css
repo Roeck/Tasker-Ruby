@@ -43,6 +43,13 @@ h1 {
   box-shadow: 0 30px 50px #00000099;
 }
 
+#txt_area {
+  top: 40%;
+  right: 27%;
+  height: 180px;
+  width: 400px;
+}
+
 /* BUTTON */
 
 .btn {
@@ -72,7 +79,7 @@ h1 {
               0 0 100px #a989f3;
 }
 
-#btn-home {
+#btn-line {
     padding-left: 5rem;
     padding-top: 4rem;
 }

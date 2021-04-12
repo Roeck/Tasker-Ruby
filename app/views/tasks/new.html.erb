@@ -1,3 +1,12 @@
-<form class="box" action="/tasks" method="POST">
+<div class="box">
   <h1>Create New Task</h1>
-</form>
+  <br /><br />
+  <form action="/tasks" method="POST">
+    <textarea id="txt_area" type="text" name="chore" placeholder="Enter new task..."></textarea>
+  <br /><br />
+    <div style="text-align: center; display: grid;">
+        <button class="btn" type="submit">SAVE</button>
+        <a class="btn" href="/tasks">BACK</a>
+    </div>
+  </form>
+</div>
