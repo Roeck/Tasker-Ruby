@@ -152,6 +152,19 @@ h1 {
   text-align: center;
 }
 
+/* TASKS */
+
+#task {
+  font-size: 22px;
+  color: #cfb8e9;
+  text-decoration: none;
+}
+
+#task:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
 /* FOOTER */
 
 .footerWrap {

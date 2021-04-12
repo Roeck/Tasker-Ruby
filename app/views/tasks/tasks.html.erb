@@ -10,7 +10,15 @@
     <!-- Show current user's tasks -->
     <h3>Your Tasks:</h3>
     <br /><br />
-    <br /><br />
+
+        <!-- Render user's tasks -->
+          <% Array(@tasks).each do |task| %>
+                  <a id="task" href="/tasks/<%= task.id %>">
+                    - <%= task.chore %> 
+                    <br /><br />
+                </a>
+              </li>
+          <% end %>
 
         <div id="task-btns">
             <a class="btn" href="/tasks/new">New Task</a>

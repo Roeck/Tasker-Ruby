@@ -1,47 +1,40 @@
 class UsersController < ApplicationController
 
-  # -------------- SIGN UP -------------- #
-
-  # Routing:
+  # SIGN UP:
 
   get "/signup" do
     erb :"/users/signup.html"
   end
 
-  # If Signup form submits empty inputs, alert requirement to user and refresh page:
-
   post "/signup" do
+    # Refresh page if an empty field gets request:
     if params[:name].empty? || params[:email].empty? || params[:password].empty?
       redirect "/signup"
-
-  # Else, create a new instance of user using params and redirect to tasks page:
-    
     else
-      @user = User.create(
-      :name => params[:name],
-      :email => params[:email],
-      :password => params[:password])
-      session[:user_id] = @user.id     
+      # Else, create a new instance of user through params:
+      @user = User.create(:name => params[:name], :email => params[:email], :password => params[:password])
+      session[:user_id] = @user.id
       redirect "/tasks"
     end
   end
 
-  # If user is signed up, redirect to tasks page:
-
-  get "/tasks" do
-    @users = User.all
-    erb :'/tasks/tasks.html'
+  patch "/users/:id" do
+    # Raise params.inspect,
+    # Find the task with the specific id:
+    @user = User.find(params[:id])
+    @user.update(name: params[:name], email: params[:email])
+    redirect "/users/#{@user.id}"
   end
 
-  # -------------- SIGN IN -------------- #
+  # SIGN IN:
 
-  # Routing:
+  # Sign In route:
 
-  get "/signin" do   
+  get "/signin" do
     erb :"/users/signin.html"
   end
 
-  # Find authenticated user and redirect it to tasks view:
+  # Find existing user and redirect it to Tasks page:
 
   post "/signin" do
     @user = User.find_by(:name => params[:name])
@@ -49,28 +42,23 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/tasks"
 
-  # Else, if the user is not authenticated, alert error message:
+  # If user is not registered, redirect it to Sign Up page:
 
     else
-      flash[:message1] = "This user does not exist!"
-      redirect "/signin"
+      redirect "/signup"
     end
   end
 
-  # -------------- SIGN OUT -------------- #
-
-  # If user signs out, destroy current session:
+  # SIGN OUT
 
   get "/signout" do
+
+    # If user is signed in, destroy session and redirect to Home page:
+
     if signed_in?
       session.destroy
-
-  # Then, redirect it to sign in form:
-
-      redirect "/signin"
+      redirect "/"
     end
   end
 
 end
-
-
