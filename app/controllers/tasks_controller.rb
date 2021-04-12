@@ -3,7 +3,23 @@ class TasksController < ApplicationController
     # Tasks view route:
 
     get "/tasks" do
-        erb :"/tasks/tasks"
+
+        # If signed in, redirect user to tasks view:
+        
+        if signed_in?
+        @user = User.find(session[:user_id])
+        # Task.where(name: name)
+        # @user = User.joins(:tasks).where(tasks: {user_id: @user})
+        @tasks = Task.where(user_id: current_user)
+        # Task.find_or_create_by(@user.id)
+        # find_by
+        erb :"tasks/tasks.html"
+
+        # Else, send it to sign in form:
+
+        else
+        redirect "/signin"
+        end
     end
 
     # New task route, if user is signed in:
