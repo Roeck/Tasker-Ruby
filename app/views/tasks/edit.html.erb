@@ -1,0 +1,10 @@
+<form class="box" action="/tasks/<%= @task.id %>" method="post">
+<h2>Edit: <%= @task.chore %></h2>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <textarea id="txt_area" type="text" name="chore" placeholder="Update task..."></textarea>
+    <br /><br />
+    
+    <button class="btn">Update</button>
+    
+</form>
+

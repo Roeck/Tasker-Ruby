@@ -62,4 +62,11 @@ class TasksController < ApplicationController
         end
     end
 
+    # TASKS EDIT
+
+    get "/tasks/:id" do
+        @task = Task.find(params[:id])
+        erb :"/tasks/edit.html"
+    end
+
 end
