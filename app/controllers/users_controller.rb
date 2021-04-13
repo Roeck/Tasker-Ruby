@@ -29,13 +29,11 @@ class UsersController < ApplicationController
   # SIGN IN:
 
   # Sign In route:
-
   get "/signin" do
     erb :"/users/signin.html"
   end
 
   # Find existing user and redirect it to Tasks page:
-
   post "/signin" do
     @user = User.find_by(:name => params[:name])
     if @user && @user.authenticate(params[:password])
@@ -43,21 +41,30 @@ class UsersController < ApplicationController
       redirect "/tasks"
 
   # If user is not registered, redirect it to Sign Up page:
-
     else
-      redirect "/signup"
+      flash[:message1] = "This user does not exist!"
+      redirect "/signin"
     end
   end
 
   # EDIT USER
 
-  get "/users/:id" do
+   get "/users/:id" do
+    # Find user by id and redirect it to Edit page"
     @user = User.find_by(id: session[:user_id])
     if @user
       erb :"/users/edit.html"
     else
       redirect "/signin"
     end
+  end
+
+  patch "/users/:id" do
+    # Raise params.inspect,
+    # Find the task with the specific id:
+    @user = User.find(params[:id])
+    @user.update(name: params[:name], email: params[:email])
+    redirect "/users/#{@user.id}"
   end
 
   # SIGN OUT

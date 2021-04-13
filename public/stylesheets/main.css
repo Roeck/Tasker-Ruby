@@ -47,11 +47,21 @@ h2 {
   box-shadow: 0 30px 50px #00000099;
 }
 
+.box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
 #txt_area {
-  top: 40%;
-  right: 27%;
-  height: 180px;
-  width: 400px;
+  height: 110px;
+  width: 470px;
 }
 
 /* BUTTON */
@@ -83,7 +93,7 @@ h2 {
               0 0 100px #a989f3;
 }
 
-#signin_btns {
+.btn-vert {
     padding-left: 6.5rem;
 }
 
