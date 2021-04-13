@@ -32,6 +32,10 @@ h1 {
   }
 }
 
+h2 {
+  text-align: center;
+}
+
 /* BOX CONTAINER */  
 
 .box {
@@ -79,20 +83,12 @@ h1 {
               0 0 100px #a989f3;
 }
 
-#btn-line {
-    padding-left: 5rem;
-    padding-top: 4rem;
-}
-
 #signin_btns {
     padding-left: 6.5rem;
 }
 
-#task-btns {
-  width: 100%;
-  text-align: center;
+.btn-line {
   position: relative;
-  top: 70%;
   left: 50%;
   transform: translate(-50%);
   display: inline-block;

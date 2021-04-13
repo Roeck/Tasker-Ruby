@@ -65,8 +65,16 @@ class TasksController < ApplicationController
     # TASKS EDIT
 
     get "/tasks/:id" do
+        @user = User.find_by(id: session[:user_id])
         @task = Task.find(params[:id])
         erb :"/tasks/edit.html"
     end
 
+    patch "/tasks/:id" do
+        User.find_by(id: session[:user_id]) if session[:user_id]
+        @task = Task.find(params[:id])
+        @task.update(chore: params[:chore])
+        redirect "/tasks"
+    end
+    
 end
