@@ -19,9 +19,11 @@
                 </a>
               </li>
           <% end %>
+          <br />
         <div class="btn-line">
-            <a class="btn" href="/tasks/new">New Task</a>
-            <a class="btn" href="/signout">Sign Out</a>
+            <a class="btn" href="/tasks/new">NEW TASK</a>
+            <a class="btn" href="/users/edit"<%= current_user.id %>>EDIT USER</a>
+            <a class="btn" href="/signout">SIGNOUT</a>
         </div>
     <% end %>
 </div>

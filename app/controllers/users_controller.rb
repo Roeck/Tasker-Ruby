@@ -49,6 +49,17 @@ class UsersController < ApplicationController
     end
   end
 
+  # EDIT USER
+
+  get "/users/:id" do
+    @user = User.find_by(id: session[:user_id])
+    if @user
+      erb :"/users/edit.html"
+    else
+      redirect "/signin"
+    end
+  end
+
   # SIGN OUT
 
   get "/signout" do
