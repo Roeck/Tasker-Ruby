@@ -18,14 +18,6 @@ class UsersController < ApplicationController
     end
   end
 
-  patch "/users/:id" do
-    # Raise params.inspect,
-    # Find the task with the specific id:
-    @user = User.find(params[:id])
-    @user.update(name: params[:name], email: params[:email])
-    redirect "/users/#{@user.id}"
-  end
-
   # SIGN IN:
 
   # Sign In route:
@@ -40,7 +32,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/tasks"
 
-  # If user is not registered, redirect it to Sign Up page:
+      # If user is not registered, redirect it to Sign Up page:
     else
       flash[:message1] = "This user does not exist!"
       redirect "/signin"
@@ -49,7 +41,7 @@ class UsersController < ApplicationController
 
   # EDIT USER
 
-   get "/users/:id" do
+  get "/users/:id" do
     # Find user by id and redirect it to Edit page"
     @user = User.find_by(id: session[:user_id])
     if @user
@@ -78,5 +70,4 @@ class UsersController < ApplicationController
       redirect "/"
     end
   end
-
 end
