@@ -14,7 +14,7 @@
     Models: 
 
     . User class - Attributes: 
-        has_many :chores
+        has_many :task
         has_secure_password
 
     . Task class - Attributes:
@@ -48,7 +48,7 @@
 (x) - Use multiple models:
 
     . User model:
-      Contains 2 attributes: "has_many :chore" and "has_secure_password".
+      Contains 2 attributes: "has_many :task" and "has_secure_password".
 
     . Task model:
       Contains the "belongs_to :user" attribute.

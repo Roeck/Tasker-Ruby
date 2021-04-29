@@ -38,11 +38,11 @@ class TasksController < ApplicationController
     post "/tasks" do
 
         # Raise params.inspect,
-        # Params {"chore"=>"raise params inspect"}:
+        # Params {"task"=>"raise params inspect"}:
         if signed_in?
         @user = User.find(session[:user_id])
 
-        if params[:chore].empty?
+        if params[:task].empty?
             redirect "/tasks/new"
         else
             @user = User.find_by(:id => session[:user_id])
@@ -50,8 +50,8 @@ class TasksController < ApplicationController
             # Create new instance of task:
             @task = Task.new
 
-            # Set the name of chore:
-            @task.chore = params[:chore]
+            # Set the name of task:
+            @task.task = params[:task]
 
             # Save it:
             @task.user_id = @user.id
@@ -81,7 +81,7 @@ class TasksController < ApplicationController
     # Find user and task by current session:
         User.find_by(id: session[:user_id]) if session[:user_id]
         @task = Task.find(params[:id])
-        @task.update(chore: params[:chore])
+        @task.update(task: params[:task])
 
     # When identified, redirect to Tasks page:
         redirect "/tasks"

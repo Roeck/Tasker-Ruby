@@ -14,7 +14,7 @@
         <!-- Render user's tasks -->
           <% Array(@tasks).each do |task| %>
                   <a id="task" href="/tasks/<%= task.id %>">
-                    - <%= task.chore %> 
+                    - <%= task.task %> 
                     <br /><br />
                 </a>
               </li>

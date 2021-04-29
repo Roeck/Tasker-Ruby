@@ -1,7 +1,7 @@
 ActiveRecord::Schema.define(version: 2021_04_12_203829) do
 
   create_table "tasks", force: :cascade do |t|
-    t.string "chore"
+    t.string "task"
     t.integer "user_id"
   end
 
