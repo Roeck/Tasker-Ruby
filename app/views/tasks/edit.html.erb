@@ -5,14 +5,9 @@
         <input id="hidden" type="hidden" name="_method" value="patch">
         <textarea id="txt_area" type="text" name="task" placeholder="Update task..."></textarea>
         <br /><br />
-        <div class="btn-line">
+        <div style="text-align: center; display: grid;">
         <button class="btn">Update</button>
-    </form>
-
-    <form action="/tasks/<%= @task.id %>/delete" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <button class="btn">Delete</button>
-        </form>
+        <a class="btn" href="/tasks"> BACK </a>
         </div>
     </form>
 </div>

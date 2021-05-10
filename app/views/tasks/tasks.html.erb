@@ -13,11 +13,17 @@
 
         <!-- Render user's tasks -->
           <% Array(@tasks).each do |task| %>
-                  <a id="task" href="/tasks/<%= task.id %>">
-                    - <%= task.task %> 
+                  <h3 id="task" href="/tasks/<%= task.id %>">
+                    - <%= task.task %></h3> 
+                    <div id="btn-right">
+                        <a class="btn-task" href="/tasks/<%= task.id %>">EDIT</a>
+                        <form action="/tasks/<%= task.id %>/delete" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn-task">DELETE</button>
+                        </form>
+                    </div>
                     <br /><br />
-                </a>
-              </li>
+                  </a>
           <% end %>
           <br />
         <div class="btn-line">

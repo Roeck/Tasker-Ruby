@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   patch "/users/:id" do
-    # Raise params.inspect,
+    # Raise params.find,
     # Find the task with the specific id:
     @user = User.find(params[:id])
     @user.update(name: params[:name], email: params[:email])
