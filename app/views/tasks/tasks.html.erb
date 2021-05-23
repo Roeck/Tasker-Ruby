@@ -1,7 +1,14 @@
 <div class="box">
     <h1>Tasker</h1>
-    <br /><br /><br />
+    <br />
      <% if signed_in? %>
+
+     <div class="btn-line">
+        <a class="btn" href="/tasks/new">NEW TASK</a>
+        <a class="btn" href="/users/edit"<%= current_user.id %>>EDIT USER</a>
+        <a class="btn" href="/signout">SIGNOUT</a>
+    </div>
+    <br /><br /><br />
 
     <!-- Welcome current user -->
    <h3>Welcome, <%= current_user.name %>!</h3>
@@ -23,13 +30,7 @@
                         </form>
                     </div>
                     <br /><br />
-                  </a>
           <% end %>
           <br />
-        <div class="btn-line">
-            <a class="btn" href="/tasks/new">NEW TASK</a>
-            <a class="btn" href="/users/edit"<%= current_user.id %>>EDIT USER</a>
-            <a class="btn" href="/signout">SIGNOUT</a>
-        </div>
     <% end %>
 </div>
