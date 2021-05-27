@@ -1,36 +1,70 @@
-<div class="box">
-    <h1>Tasker</h1>
-    <br />
-     <% if signed_in? %>
+<!-- NAVBAR -->
 
-     <div class="btn-line">
-        <a class="btn" href="/tasks/new">NEW TASK</a>
-        <a class="btn" href="/users/edit"<%= current_user.id %>>EDIT USER</a>
-        <a class="btn" href="/signout">SIGNOUT</a>
+<nav class="nav">
+    <div class="container">
+        <div class="logo">
+            <a href="#"><h1>Tasker</h1></a>
+        </div>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+            <br />
+                <li><a class="btn" href="/tasks/new">NEW TASK</a></li>
+                <br />
+                <li><a class="btn" href="/users/edit"<%= current_user.id %>>EDIT USER</a></li>
+                <br />
+                <li><a class="btn" href="/signout">SIGNOUT</a></li>
+            </ul>
+        </div>
+        <span class="navTrigger">
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
     </div>
-    <br /><br /><br />
+</nav>
+    
+<!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
 
-    <!-- Welcome current user -->
-   <h3>Welcome, <%= current_user.name %>!</h3>
+<!-- Function used to shrink nav bar removing paddings -->
+    <script>
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+        $('.navTrigger').click(function () {
+            $(this).toggleClass('active');
+                console.log("Clicked menu");
+        $("#mainListDiv").toggleClass("show_list");
+            $("#mainListDiv").fadeIn();
+        });
+    </script>
     <br /><br />
-
-    <!-- Show current user's tasks -->
-    <h3>Your Tasks:</h3>
+       
+<!-- WELCOME USER AND TASKS PAGE -->
+<div class="box">
+   <h2>Welcome, <%= current_user.name %>!</h2>
     <br /><br />
-
-        <!-- Render user's tasks -->
-          <% Array(@tasks).each do |task| %>
-                  <h3 id="task" href="/tasks/<%= task.id %>">
-                    - <%= task.task %></h3> 
-                    <div id="btn-right">
-                        <a class="btn-task" href="/tasks/<%= task.id %>">EDIT</a>
-                        <form action="/tasks/<%= task.id %>/delete" method="POST">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button class="btn-task">DELETE</button>
-                        </form>
-                    </div>
-                    <br /><br />
-          <% end %>
-          <br />
-    <% end %>
+    <h2>Your Tasks:</h2>
+    <br /><br />
+        <% Array(@tasks).each do |task| %>
+                <h3 id="task" href="/tasks/<%= task.id %>">
+                - <%= task.task %></h3> 
+                <div id="btn-right">
+                    <a class="btn-task" href="/tasks/<%= task.id %>">EDIT</a>
+                    <form action="/tasks/<%= task.id %>/delete" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn-task">DELETE</button>
+                    </form>
+                </div>
+            <br /><br />
+        <% end %>
+    <br />
 </div>
+            
+     
